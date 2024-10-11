@@ -1,0 +1,9 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <label for="email">email: </label>
+  <input id="email" type="text" formControlName="email">
+  <label for="password">password: </label>
+  <input id="password" type="text" formControlName="password">
+
+  <p>Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>
