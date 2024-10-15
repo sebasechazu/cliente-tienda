@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+// primeng
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule, CardModule, InputTextModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -27,8 +29,7 @@ export class LoginComponent {
     if (this.userForm.valid) {
       this.service.login(email!, password!).subscribe({
         next: (data) => {
-          this.service.setToken(data.token); // Guarda el token en localStorage
-          console.log('Login successful:', data);
+          this.service.setToken(data.token);
           this.router.navigate(['home']);
         },
         error: (err) => {

@@ -1,9 +1,13 @@
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-  <label for="email">email: </label>
-  <input id="email" type="text" formControlName="email">
-  <label for="password">password: </label>
-  <input id="password" type="text" formControlName="password">
+<div class="login-container">
+  <p-card header="Login">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <label for="email">Email: </label>
+      <input id="email" pInputText type="text" formControlName="email">
+      
+      <label for="password">Password: </label>
+      <input id="password" pInputText type="password" formControlName="password">
 
-  <p>Complete the form to enable button.</p>
-  <button type="submit" [disabled]="!userForm.valid">Submit</button>
-</form>
+      <button type="submit" pInputText [disabled]="!userForm.valid">Ingresar</button>
+    </form>
+  </p-card>
+</div>
